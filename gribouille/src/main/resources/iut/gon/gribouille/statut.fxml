@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox spacing="20.0"
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="iut.gon.gribouille.controleurs.StatusController"
+    style="-fx-background-color: #d4d0c8; -fx-border-color: #888; -fx-border-width: 1 0 0 0;">
+    <padding>
+        <Insets top="4.0" bottom="4.0" left="8.0" right="8.0" />
+    </padding>
+    <Label fx:id="labelX" text="X : 0" />
+    <Label fx:id="labelY" text="Y : 0" />
+    <Label fx:id="labelEpaisseur" text="Epaisseur : 3" />
+    <Label fx:id="labelOutil" text="Outil" />
+    <Label fx:id="labelCouleur" text="Couleur" />
+</HBox>

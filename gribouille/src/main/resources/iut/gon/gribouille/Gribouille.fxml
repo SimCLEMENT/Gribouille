@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="iut.gon.gribouille.controleurs.Controleur"
+    prefHeight="560.0" prefWidth="680.0"
+    minWidth="200.0" minHeight="150.0">
+
+    <top>
+        <fx:include source="menus.fxml" fx:id="menus" />
+    </top>
+    <center>
+        <fx:include source="dessin.fxml" fx:id="dessin" />
+    </center>
+    <right>
+        <fx:include source="couleurs.fxml" fx:id="couleurs" />
+    </right>
+    <bottom>
+        <fx:include source="statut.fxml" fx:id="statut" />
+    </bottom>
+
+</BorderPane>
