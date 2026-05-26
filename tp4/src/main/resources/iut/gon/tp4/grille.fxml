@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<center>
+		<GridPane fx:id="grille" alignment="CENTER"
+			gridLinesVisible="true" hgap="1.0" maxHeight="-Infinity"
+			maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+			prefHeight="400.0" prefWidth="600.0" vgap="1.0">
+			<columnConstraints>
+				<ColumnConstraints halignment="CENTER"
+					hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints halignment="CENTER"
+					hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints halignment="CENTER"
+					hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					valignment="CENTER" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					valignment="CENTER" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					valignment="CENTER" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<padding>
+				<Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+			</padding>
+		</GridPane>
+	</center>
+	<top>
+		<fx:include source="menus.fxml" fx:id="menus" />
+	</top>
+	<bottom>
+		<HBox fx:id="statut" alignment="CENTER">
+			<Label text="Joueur " />
+			<Label fx:id="joueur" />
+			<Label text=" à vous de jouer !" />
+		</HBox>
+	</bottom>
+</BorderPane>
