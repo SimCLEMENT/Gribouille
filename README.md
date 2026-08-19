@@ -72,13 +72,6 @@ Changer d'outil (via le menu ou le clavier) change dynamiquement le comportement
 - **Maven** (gestion du projet et des dépendances)
 - **Git** (gestion de versions, avec une branche stable `gribouille_stable` et une branche de développement par TP)
 
-## 📂 Organisation du dépôt Git
-
-Le projet a été développé selon un workflow Git structuré :
-- une branche **`gribouille_stable`** contient la version stable et fonctionnelle du projet,
-- chaque nouvelle fonctionnalité est développée sur une branche dédiée (`gribouille_tpX`), éventuellement accompagnée de branches temporaires pour les étapes intermédiaires,
-- les fonctionnalités validées sont fusionnées (`merge --squash`) dans la branche stable afin de conserver un historique propre, avec un commit par fonctionnalité.
-
 ## 🚀 Lancement du projet
 
 Le projet est un projet Maven utilisant JavaFX (version 21.0.2). Pour le lancer :
