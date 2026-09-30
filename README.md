@@ -1,14 +1,18 @@
-# Gribouille 🎨
+# Gribouille
 
-Gribouille est une application de dessin (mini "paint") réalisée en **Java avec JavaFX**, dans le cadre des TP de l'UE *R2.02 – Programmation des IHM* (BUT Informatique). Le projet a été développé progressivement, TP après TP, en appliquant à chaque étape une nouvelle notion vue en cours (gestion des événements, architecture MVC, data binding, etc.).
+Application de dessin (mini "paint") en Java/JavaFX, avec choix d'outils, de couleurs et sauvegarde/chargement de dessins.
 
-## 📖 Présentation
+🎥 **Démo vidéo :** [lien YouTube non répertorié]
 
-Gribouille permet à l'utilisateur de dessiner à main levée sur une zone de type "ardoise" (un `Canvas`), avec la possibilité de :
-- choisir un outil de dessin (crayon ou étoile),
-- changer la couleur et l'épaisseur du trait,
-- sauvegarder et recharger un dessin,
-- naviguer dans les menus et raccourcis clavier de l'application.
+## 📖 Contexte
+
+Ce projet a été réalisé dans le cadre de l'UE R2.02 (Programmation des IHM) du BUT Informatique de l'IUT de Caen, développé progressivement au fil de plusieurs séances de TP consacrées respectivement à :
+1. la prise en main de Git, Maven et SceneBuilder,
+2. la gestion des événements (souris, clavier, menus),
+3. l'architecture MVC et le binding de propriétés,
+4. les contrôleurs multiples et imbriqués,
+5. une séance de révisions (clavier, couleur, épaisseur),
+6. le data binding avancé et la persistance des dessins (sauvegarde/chargement).
 
 L'interface est décrite en **FXML** et éditée visuellement avec **SceneBuilder**, tandis que la logique est écrite en Java selon le patron d'architecture **MVC (Modèle-Vue-Contrôleur)**.
 
@@ -19,6 +23,19 @@ La fenêtre est organisée autour d'un `BorderPane` :
 - **Centre** : la zone de dessin (`Canvas`), qui occupe tout l'espace disponible et se redimensionne avec la fenêtre.
 - **Droite** : un panneau de sélection des couleurs (un `ColorPicker` et une palette de couleurs prédéfinies sous forme de rectangles cliquables).
 - **Bas** : une barre d'état affichant en temps réel la position du curseur (X, Y), l'épaisseur du trait et l'outil/couleur sélectionnés.
+
+## ✨ Fonctionnalités
+
+- **Dessin à main levée** avec le crayon (`MOUSE_PRESSED` / `MOUSE_DRAGGED` sur le `Canvas`).
+- **Outil étoile**, dessinant des rayons vers les points survolés.
+- **Choix de la couleur** du trait via une palette de rectangles cliquables ou un `ColorPicker`.
+- **Choix de l'épaisseur** du trait (1 à 9), via le menu ou le clavier.
+- **Raccourcis clavier** permettant de changer rapidement d'outil, de couleur ou d'épaisseur sans interrompre le tracé en cours.
+- **Redimensionnement intelligent** : le dessin est mémorisé dans le modèle et intégralement redessiné si la fenêtre est agrandie ou réduite (le `Canvas` seul ne conserverait pas les portions cachées).
+- **Barre d'état dynamique**, liée par data binding aux propriétés courantes (position de la souris, épaisseur, couleur, outil).
+- **Sauvegarde / chargement** d'un dessin dans un fichier texte, via un `FileChooser` (chaque figure est sérialisée sur une ligne : type, épaisseur, couleur, points).
+- **Titre de fenêtre intelligent** : affiche le nom du fichier courant, complété d'une étoile `*` si le dessin contient des modifications non sauvegardées.
+- **Confirmation à la fermeture** : si le dessin a été modifié, l'utilisateur est invité à sauvegarder, quitter sans sauvegarder, ou annuler la fermeture.
 
 ## 🏗️ Architecture
 
@@ -52,25 +69,12 @@ Les outils de dessin héritent d'une classe abstraite commune `Outil` (patron **
 
 Changer d'outil (via le menu ou le clavier) change dynamiquement le comportement de la souris sur la zone de dessin, sans avoir à dupliquer le code de gestion des événements.
 
-## ✨ Fonctionnalités
+## 🛠️ Langages et technologies utilisés
 
-- **Dessin à main levée** avec le crayon (`MOUSE_PRESSED` / `MOUSE_DRAGGED` sur le `Canvas`).
-- **Outil étoile**, dessinant des rayons vers les points survolés.
-- **Choix de la couleur** du trait via une palette de rectangles cliquables ou un `ColorPicker`.
-- **Choix de l'épaisseur** du trait (1 à 9), via le menu ou le clavier.
-- **Raccourcis clavier** permettant de changer rapidement d'outil, de couleur ou d'épaisseur sans interrompre le tracé en cours.
-- **Redimensionnement intelligent** : le dessin est mémorisé dans le modèle et intégralement redessiné si la fenêtre est agrandie ou réduite (le `Canvas` seul ne conserverait pas les portions cachées).
-- **Barre d'état dynamique**, liée par data binding aux propriétés courantes (position de la souris, épaisseur, couleur, outil).
-- **Sauvegarde / chargement** d'un dessin dans un fichier texte, via un `FileChooser` (chaque figure est sérialisée sur une ligne : type, épaisseur, couleur, points).
-- **Titre de fenêtre intelligent** : affiche le nom du fichier courant, complété d'une étoile `*` si le dessin contient des modifications non sauvegardées.
-- **Confirmation à la fermeture** : si le dessin a été modifié, l'utilisateur est invité à sauvegarder, quitter sans sauvegarder, ou annuler la fermeture.
-
-## 🛠️ Technologies utilisées
-
-- **Java** / **JavaFX** (interface graphique)
-- **FXML** + **SceneBuilder** (description et édition visuelle de l'interface)
-- **Maven** (gestion du projet et des dépendances)
-- **Git** (gestion de versions, avec une branche stable `gribouille_stable` et une branche de développement par TP)
+- Java / JavaFX (interface graphique)
+- FXML + SceneBuilder (description et édition visuelle de l'interface)
+- Maven (gestion du projet et des dépendances)
+- Git (gestion de versions, avec une branche stable `gribouille_stable` et une branche de développement par TP)
 
 ## 🚀 Lancement du projet
 
@@ -83,12 +87,6 @@ mvn javafx:run
 
 > ⚠️ Un JDK 17 minimum est requis pour exécuter JavaFX 21.
 
-## 🎓 Contexte
+## ✍️ Auteur
 
-Ce projet a été réalisé dans le cadre de l'UE R2.02 (Programmation des IHM) du BUT Informatique de l'IUT de Caen, au fil de plusieurs séances de TP consacrées respectivement à :
-1. la prise en main de Git, Maven et SceneBuilder,
-2. la gestion des événements (souris, clavier, menus),
-3. l'architecture MVC et le binding de propriétés,
-4. les contrôleurs multiples et imbriqués,
-5. une séance de révisions (clavier, couleur, épaisseur),
-6. le data binding avancé et la persistance des dessins (sauvegarde/chargement).
+- Simon CLEMENT
