@@ -2,7 +2,7 @@
 
 Application de dessin (mini "paint") en Java/JavaFX, avec choix d'outils, de couleurs et sauvegarde/chargement de dessins.
 
-🎥 **Démo vidéo :** [lien YouTube non répertorié]
+🎥 **Démo vidéo :** https://www.youtube.com/watch?v=b7IG0bEVq-E
 
 ## 📖 Contexte
 
